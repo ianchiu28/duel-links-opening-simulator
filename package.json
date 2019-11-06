@@ -1,0 +1,24 @@
+{
+  "name": "duel-links-opening-simulator",
+  "version": "1.0.0",
+  "description": "Duel Links opening simulator",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianchiu28/duel-links-opening-simulator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ianchiu28/duel-links-opening-simulator/issues"
+  },
+  "homepage": "https://github.com/ianchiu28/duel-links-opening-simulator#readme",
+  "devDependencies": {
+    "electron": "^7.1.0"
+  }
+}
