@@ -7,22 +7,22 @@ var wannaListNumber = 4;
 
 $('#btnGo').on('click', () => {
     possibleList = [];
-    deck = ['A', 'B', 'C', 'D'];
-    deck = [
-        'MEI', 'MEI', 'MEI', 'DES', 'LUC',
-        'TMA', 'TMA', 'TMA', 'BOK', 'BOK',
-        'FUN', 'FUN', 'FUN', 'TAN', 'TAN',
-        'SUU', 'GLX', 'GLX', 'BLU', 'BAK'
-    ];
+    deck = ['A', 'B', 'C', 'D', 'E', 'F'];
+    // deck = [
+    //     'MEI', 'MEI', 'MEI', 'DES', 'LUC',
+    //     'TMA', 'TMA', 'TMA', 'BOK', 'BOK',
+    //     'FUN', 'FUN', 'FUN', 'TAN', 'TAN',
+    //     'SUU', 'GLX', 'GLX', 'BLU', 'BAK'
+    // ];
 
     generatePossibleList(deck, []);
 
     console.log('----------------------------');
     console.log('Num: ', possibleList.length);
     $('#divText').html(possibleList.length);
-    // possibleList.forEach(e => {
-    //     console.log(e);
-    // });
+    possibleList.forEach(e => {
+        console.log(e);
+    });
 });
 
 function generatePossibleList(deck, list) {
@@ -31,13 +31,25 @@ function generatePossibleList(deck, list) {
 
     if (list.length === wannaListNumber) {
         list = JSON.stringify(list.sort());
-        if (!possibleList.includes(list)) {
-            possibleList.push(list);
+        // if (!possibleList.includes(list)) {
+        //     possibleList.push(list);
+        // }
+        // return;
+
+        // not contain
+        if (!possibleList.some(e => e.list) === list) {
+            possibleList.push({
+                list: list,
+                count: 1
+            });
         }
-        return;
+        // contain
+        else {
+            possibleList.find(e => e.list === list).count++;
+        }
     }
 
-    // select one
+    // expand all
     deck.forEach((element, index) => {
         // console.log('element: ', element);
 
