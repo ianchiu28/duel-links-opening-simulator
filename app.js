@@ -2,25 +2,27 @@
 
 const $ = require('jquery');
 
-$('#divText').html('Heeeeeeee');
+var possibleList, deck;
+var wannaListNumber = 4;
 
-var possibleList = [];
+$('#btnGo').on('click', () => {
+    possibleList = [];
+    deck = ['A', 'B', 'C', 'D'];
+    /*var deck = [
+        'MEI', 'MEI', 'MEI', 'DES', 'LUC',
+        'TMA', 'TMA', 'TMA', 'BOK', 'BOK',
+        'FUN', 'FUN', 'FUN', 'TAN', 'TAN',
+        'SUU', 'GLX', 'GLX', 'BLU', 'BAK'
+    ];*/
 
-var deck = [
-    'MEI', 'MEI', 'MEI', 'DES', 'LUC',
-    'TMA', 'TMA', 'TMA', 'BOK', 'BOK',
-    'FUN', 'FUN', 'FUN', 'TAN', 'TAN',
-    'SUU', 'GLX', 'GLX', 'BLU', 'BAK'
-];
-var wannaListNumber = 5;
-
-generatePossibleList(deck, []);
-
-console.log('----------------------------');
-console.log('Num: ', possibleList.length);
-// possibleList.forEach(e => {
-//     console.log(e);
-// });
+    generatePossibleList(deck, []);
+    console.log('----------------------------');
+    console.log('Num: ', possibleList.length);
+    $('#divText').html(possibleList.length);
+    // possibleList.forEach(e => {
+    //     console.log(e);
+    // });
+});
 
 function generatePossibleList(deck, list) {
     // console.log('deck: ', deck);
