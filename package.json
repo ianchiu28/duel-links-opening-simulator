@@ -20,5 +20,8 @@
   "homepage": "https://github.com/ianchiu28/duel-links-opening-simulator#readme",
   "devDependencies": {
     "electron": "^6.0.1"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1"
   }
 }

@@ -1,5 +1,7 @@
 'use strict';
 
+const $ = require('jquery');
+
 /*const csvParser = require('csv-parser');
 const csvWriter = require('csv-writer').createObjectCsvWriter;
 const fs = require('fs');
