@@ -3,29 +3,29 @@
 const $ = require('jquery');
 
 let possibleList, deck, total;
-let wannaListNumber = 3;
+let wannaListNumber = 4;
 
 $('#btnGo').on('click', () => {
     possibleList = [];
     total = 0;
-    deck = ['A', 'A', 'C', 'D'];
+    // deck = ['AAA', 'AAA', 'CCC', 'DDD'];
     // deck = ['A', 'B', 'C', 'D', 'E', 'F'];
-    // deck = [
-    //     'MEI', 'MEI', 'MEI', 'DES', 'LUC',
-    //     'TMA', 'TMA', 'TMA', 'BOK', 'BOK',
-    //     'FUN', 'FUN', 'FUN', 'TAN', 'TAN',
-    //     'SUU', 'GLX', 'GLX', 'BLU', 'BAK'
-    // ];
+    deck = [
+        'MEI', 'MEI', 'MEI', 'DES', 'LUC',
+        'TMA', 'TMA', 'TMA', 'BOK', 'BOK',
+        'FUN', 'FUN', 'FUN', 'TAN', 'TAN',
+        'SUU', 'GLX', 'GLX', 'BLU', 'BAK'
+    ];
 
     generatePossibleList(deck, []);
 
     console.log('----------------------------');
-    console.log('Num: ', possibleList.length);
+    console.log('Num: ', possibleList.length);    
+    console.log('Total: ', total);
     $('#divText').html(possibleList.length);
     possibleList.forEach(e => {
-        console.log(e);
+        console.log(e.list + ' ' + e.count/total*100 + '%');
     });
-    console.log(total);
 });
 
 function generatePossibleList(deck, list) {
@@ -36,10 +36,6 @@ function generatePossibleList(deck, list) {
         total++;
         // console.log('ori list: ', list);
         list = JSON.stringify(list.sort());
-        // if (!possibleList.includes(list)) {
-        //     possibleList.push(list);
-        // }
-        // return;
 
         // not contain
         // console.log('list: ', list);
@@ -55,6 +51,8 @@ function generatePossibleList(deck, list) {
             possibleList.find(e => e.list === list).count++;
             // console.log('contain, count: ' + possibleList.find(e => e.list === list).count);
         }
+
+        return;
     }
 
     // expand all
