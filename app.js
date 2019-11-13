@@ -19,12 +19,15 @@ $('#btnGo').on('click', () => {
 
     generatePossibleList(deck, []);
 
+    possibleList = sortArrayDesc(possibleList);
+    possibleList = addRateToArray(possibleList, total);
     console.log('----------------------------');
-    console.log('Num: ', possibleList.length);    
+    console.log('Num: ', possibleList.length);
     console.log('Total: ', total);
     $('#divText').html(possibleList.length);
     possibleList.forEach(e => {
-        console.log(e.list + ' ' + e.count/total*100 + '%');
+        // console.log(e.list + ' ' + e.count / total * 100 + '%');
+        console.log(e);
     });
 });
 
@@ -68,6 +71,18 @@ function generatePossibleList(deck, list) {
         // console.log('new list: ', newList);
 
         generatePossibleList(newDeck, newList);
+    });
+}
+
+function sortArrayDesc(array) {
+    return array.sort((a, b) => b.count - a.count);
+}
+
+function addRateToArray(array, total) {
+    return array.map(element => {
+        // 12.34
+        element.rate = Math.round(element.count / total * 10000) / 100;
+        return element;
     });
 }
 
