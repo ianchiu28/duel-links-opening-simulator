@@ -22,6 +22,7 @@
     "electron": "^6.0.1"
   },
   "dependencies": {
+    "csv-writer": "^1.5.0",
     "jquery": "^3.4.1"
   }
 }
